@@ -1,0 +1,41 @@
+.expansions {
+  display: flex;
+  justify-content: space-around;
+  /* margin-bottom: 3%; */
+}
+
+.expansions > div {
+  flex: 1;
+  max-width: 600px; /* Set a fixed width for the containers */
+  margin: 2%;
+  position: relative;
+}
+
+.expansions h1 {
+  text-align: center;
+  padding: 2% 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.expansions h4 {
+  text-align: center;
+  padding: 2% 0;
+}
+
+.expansions img {
+  width: 100%;
+  height: auto;
+}
+
+.button-container {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .expansions {
+    flex-direction: column;
+  }
+}

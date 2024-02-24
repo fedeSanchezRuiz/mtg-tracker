@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: darkred;
+  margin-top: 3%;
+  padding: 1.5% 0;
+}
+
+.container > div {
+  max-width: 200px; /* Adjust the max-width as needed */
+  text-align: center;
+}
+
+.container h3 {
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  padding-bottom: 2%;
+}
+
+.container p {
+  font-size: 1rem; /* Adjust the font size as needed */
+}
+
+.container a {
+  display: flex;
+  align-items: center;
+  font-size: 1rem; /* Adjust the font size as needed */
+  color: darkgray;
+  padding-top: 2%;
+}
+
+.container svg {
+  width: 1em; /* Adjust the arrow icon size */
+  height: 1em; /* Adjust the arrow icon size */
+  margin-left: 5px; /* Adjust the spacing between text and icon */
+  color: darkgray;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom {
+  background-color: red;
+  text-align: center;
+  border-top: 3px solid rgb(242, 85, 85);
+}
+
+.bottom svg {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  margin-top: 1%;
+}
+
+.back {
+  text-align: center;
+  background-color: red;
+  padding-bottom: 1.6%;
+  position: relative; /* Add position relative */
+  border-bottom: 3px solid rgb(242, 85, 85);
+}
+
+.container a:hover,
+.container svg:hover {
+  text-decoration: underline;
+}
+
+.container a:active,
+.container svg:active {
+  color: black;
+}

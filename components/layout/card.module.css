@@ -1,0 +1,23 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 6rem auto;
+  width: 50%;
+  line-height: 3rem;
+}
+
+.card h2 {
+  padding-bottom: 1.4rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 80%;
+  }
+
+  .card h2 {
+    padding-bottom: 1rem;
+  }
+}

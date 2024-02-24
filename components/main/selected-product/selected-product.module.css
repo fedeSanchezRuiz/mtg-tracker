@@ -1,0 +1,147 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem auto;
+  max-width: 70rem;
+}
+
+.container .icons a:hover,
+.container .checkout a:hover,
+.container .icons button:hover {
+  text-decoration: underline;
+  color: red;
+}
+
+.container .icons a,
+.container .icons button {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 2rem;
+}
+
+.text h2 {
+  padding-top: 1rem;
+}
+
+.going-back {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  padding-bottom: 6px;
+}
+
+.going-back svg {
+  display: flex;
+  width: 16px; /* Adjust the width as needed */
+  height: 16px; /* Adjust the height as needed */
+  margin-right: 10px;
+}
+
+.name {
+  text-align: center;
+  background-color: grey;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+}
+
+.name h2 {
+  padding-bottom: 1rem;
+}
+
+.description {
+  display: flex;
+  border-top: 2px solid grey;
+  border-bottom: 2px solid grey;
+}
+
+.description svg {
+  width: 30px; /* Adjust the width as needed */
+  height: 30px; /* Adjust the height as needed */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 0.7rem;
+}
+
+.choices h3 {
+  padding: 1rem 0;
+}
+
+.choices h2 {
+  padding: 1rem 0;
+}
+
+.choices svg {
+  width: 25px; /* Adjust the width as needed */
+  height: 25px; /* Adjust the height as needed */
+  margin-top: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+}
+
+.price h2 {
+  padding-right: 0.5rem;
+}
+
+.icons {
+  display: flex;
+}
+
+.icons button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.checkout {
+  padding-left: 2rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
+}
+
+.checkout h2 {
+  padding: 1rem 0;
+}
+
+.checkout h4 {
+  padding-bottom: 0.6rem;
+}
+
+.checkout h3 {
+  padding-top: 1rem;
+}
+
+.total-price {
+  display: flex;
+}
+
+.total-price h4 {
+  padding-right: 5%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text,
+  .checkout {
+    padding: 0;
+  }
+
+  .description,
+  .choices {
+    padding-left: 5%;
+  }
+}

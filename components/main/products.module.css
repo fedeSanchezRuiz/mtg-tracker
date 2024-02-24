@@ -1,0 +1,88 @@
+.title {
+  font-size: 2rem;
+  margin-top: 2.5%;
+  margin-bottom: 1%;
+  margin-left: 2%;
+}
+
+.background {
+  background-color: white;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top: 5px solid lightgrey;
+  border-bottom: 5px solid lightgrey;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0; /* Remove default padding on the ul element */
+  list-style: none; /* Remove default list styling */
+}
+
+.items {
+  width: 200px;
+  margin: 20px;
+  text-align: center;
+  position: relative; /* Add relative positioning to create a stacking context */
+}
+
+.items img {
+  width: 100%;
+  height: auto;
+  /* transition: transform 0.3s ease; */
+}
+
+.items h3 {
+  color: black;
+  margin-top: 2%;
+}
+
+.items:hover {
+  color: darkred;
+  border: 2px solid lightgray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.items:active {
+  color: darkred;
+  transform: scale(1);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Adjust margin as needed */
+}
+
+.pagination svg {
+  width: 4em; /* Adjust the arrow icon size */
+  height: 4em; /* Adjust the arrow icon size */
+  color: darkred;
+}
+
+.pagination button {
+  background-color: white;
+  border: none;
+  color: #333;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin: 0 4px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #ddd;
+}
+
+.pagination button:disabled {
+  color: #999;
+  opacity: 0.5;
+  cursor: not-allowed;
+}

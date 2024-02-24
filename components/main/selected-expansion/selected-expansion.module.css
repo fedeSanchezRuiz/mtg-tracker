@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2.5rem auto;
+}
+
+.container h1 {
+  margin-bottom: 2%;
+}
+
+.all-cards {
+  display: flex;
+  list-style-type: none;
+}
+
+.card {
+  padding: 1rem 1rem;
+}
+
+.card h3 {
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid grey;
+  margin-bottom: 0.5rem;
+}
+
+.going-back {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 0.5%;
+}
+
+.going-back svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
+.cart {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid grey;
+  padding: 0.4rem 0.8rem;
+}
+
+.cart svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.4rem;
+}
+
+.inner-cart {
+  display: flex;
+}
+
+.inner-cart button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.inner-cart button:hover {
+  text-decoration: underline;
+  color: red;
+}
+
+@media (max-width: 768px) {
+  .container h1 {
+    background-color: darkred;
+    width: 100%;
+    text-align: center;
+    border-radius: 0;
+  }
+
+  .container h3 {
+    text-align: center;
+  }
+
+  .all-cards {
+    display: flex;
+    flex-direction: column;
+  }
+}

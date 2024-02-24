@@ -1,0 +1,52 @@
+.h2 {
+  text-align: left;
+  width: 60%;
+  margin-left: 5%;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-box input {
+  width: 80%;
+  height: 3rem;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  padding-left: 1.2%;
+}
+
+.checkbox {
+  width: 50%;
+  margin: 1% 0;
+  margin-right: 4%;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  line-height: 1.5rem;
+}
+
+.checkbox label {
+  margin-left: 1.5rem;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: red;
+}
+
+.checkbox input {
+  transform: scale(2);
+}
+
+.first-checkbox {
+  margin-top: 2rem;
+}
+
+.second-checkbox {
+  margin-bottom: 2rem;
+}

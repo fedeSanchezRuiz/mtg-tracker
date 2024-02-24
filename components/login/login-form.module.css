@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10rem auto;
+}
+
+.boxes {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.boxes h1 {
+  font-size: 1.1rem;
+  padding: 2%;
+  text-align: center;
+  margin-right: 10%;
+}
+
+.boxes input {
+  text-align: left;
+  padding: 2%;
+  font-size: 1.1rem;
+}
+
+.boxes input {
+  width: 60%;
+  height: 3rem;
+  box-sizing: border-box;
+  margin: 10px 0;
+}
+
+.boxes p {
+  width: 50%;
+  padding: 2% 0;
+  line-height: 25px;
+  /* Add any other styles as needed */
+}
+
+.left-box {
+  /* Add styles for the left box, e.g., aligning to the right */
+  text-align: right;
+  border-right: 1px solid grey;
+  padding: 0 5%;
+  margin: 0 5%;
+}
+
+.right-box {
+  /* Add styles for the right box, e.g., aligning to the left */
+  text-align: left;
+}
+
+.container h4:hover {
+  text-decoration: underline;
+  color: red;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .container h1 {
+    text-align: left;
+  }
+
+  .boxes {
+    width: 55%;
+  }
+
+  .boxes p {
+    width: 100%;
+    text-align: left;
+  }
+
+  .left-box {
+    text-align: center;
+    border: none;
+    margin-bottom: 15%;
+    padding: 0;
+  }
+
+  .right-box {
+    text-align: center;
+  }
+
+  .right-box Button {
+    /* Apply styles specific to the second button in the right box */
+    align-self: center;
+  }
+
+  .boxes input {
+    width: 100%;
+  }
+}

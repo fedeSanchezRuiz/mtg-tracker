@@ -1,0 +1,145 @@
+.header {
+  background-color: rgba(139, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3%;
+  width: 100%;
+  height: 6rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: white;
+  font-family: 'Inherit', sans-serif;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.navigation {
+  display: flex;
+  padding: 1rem;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.navigation li {
+  padding: 1rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navigation li.search {
+  position: relative;
+}
+
+.navigation li.search input {
+  width: 300px; /* Set the desired width */
+  height: 40px; /* Set the desired height */
+  padding: 10px; /* Adjust padding for better aesthetics */
+  font-size: 16px; /* Adjust font size if needed */
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  margin-right: 5%;
+}
+
+.navigation li.search svg {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Adjust the right position based on your layout */
+  transform: translateY(-50%);
+  fill: white; /* Adjust the fill color based on your design */
+  width: 20px; /* Set the desired width */
+  height: 20px; /* Set the desired height */
+}
+
+.items-container {
+  display: flex;
+}
+
+.items {
+  max-width: 4rem; /* Increase the max-width as needed */
+  font-size: small;
+  text-align: center;
+  width: 80px; /* Increase the width as needed */
+  height: 100%; /* Set the height to 100% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items svg {
+  height: 33px;
+  width: 33px;
+}
+
+.search-container {
+  display: flex;
+}
+
+.search-container button {
+  border-top-left-radius: 15px;
+  /* border-bottom-left-radius: 15px; */
+  border-bottom: 2px solid grey;
+  border-right: 2px solid grey;
+  cursor: pointer;
+}
+
+.dropdown {
+  font-size: 14px;
+  position: absolute;
+  top: 78%;
+  left: 4%;
+  background-color: grey; /* Set the background color of the dropdown */
+  border: 1px solid darkgrey; /* Add a border for better visibility */
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  z-index: 1; /* Ensure the dropdown appears above other elements */
+  padding: 10px; /* Adjust padding for better aesthetics */
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+}
+
+.dropdown a {
+  color: white; /* Set the text color of dropdown links */
+  text-decoration: none;
+  padding: 8px 0; /* Adjust padding for better aesthetics */
+}
+
+.dropdown a:hover {
+  background-color: rgb(
+    62,
+    62,
+    62
+  ); /* Add a background color on hover for better feedback */
+  border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 8rem;
+    padding: 5%;
+  }
+  .logo {
+    font-size: 0.8rem;
+  }
+  .navigation {
+    flex-direction: column;
+  }
+  .dropdown { 
+    width: 7rem;
+  }
+}

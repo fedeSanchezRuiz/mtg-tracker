@@ -1,0 +1,150 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem auto;
+}
+
+.container h1 {
+  padding-bottom: 1rem;
+}
+
+.container a,
+.container button {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.going-back {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 0.5%;
+}
+
+.going-back svg {
+  display: flex;
+  width: 16px; /* Adjust the width as needed */
+  height: 16px; /* Adjust the height as needed */
+  margin-right: 10px;
+}
+
+.box {
+  margin-left: 2rem;
+  padding-right: 3rem;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid grey;
+}
+
+.text h4 {
+  margin: 1rem 0;
+}
+
+.choices {
+  margin-top: 2rem;
+  height: 15rem;
+}
+
+.choices h3 {
+  padding: 1rem 0;
+}
+
+.choices h2 {
+  padding: 1rem 0;
+}
+
+.choices svg {
+  width: 25px; /* Adjust the width as needed */
+  height: 25px; /* Adjust the height as needed */
+  margin-top: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+}
+
+.price h2 {
+  padding-right: 0.5rem;
+}
+
+.icons {
+  display: flex;
+}
+
+.icons button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.checkout {
+  padding-bottom: 2rem;
+  margin-top: 2rem;
+  height: 15rem;
+}
+
+.checkout h2 {
+  padding: 1rem 0;
+}
+
+.checkout h4 {
+  padding-bottom: 0.6rem;
+}
+
+.checkout h3 {
+  padding-top: 1rem;
+}
+
+.choices a:hover,
+.checkout a:hover,
+.icons button:hover {
+  text-decoration: underline;
+  color: red;
+}
+
+.total-price {
+  display: flex;
+}
+
+.total-price h4 {
+  padding-right: 5%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .container h1 {
+    text-align: center;
+    padding: 0;
+    padding-bottom: 1.5%;
+  }
+
+  .choices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container img {
+    margin: auto;
+  }
+
+  .box {
+    border-bottom: 1px solid grey;
+  }
+}

@@ -1,0 +1,90 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.username {
+  margin: 3% 0;
+  border: 1px solid lightgrey;
+  background-color: gray;
+  width: 80%;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.buttons a {
+  width: 15rem;
+  border: 1px solid red;
+  background-color: darkred;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: 1px solid lightgrey;
+  padding: 2% 0;
+  /* margin-right: 3%; */
+  background-color: grey;
+  border-radius: 2px;
+}
+
+.form div {
+  width: 85%;
+}
+
+.form input {
+  padding: 0.5rem;
+  width: 100%;
+  /* Add any other styling you need for the input fields */
+}
+
+.sharedspace {
+  display: flex;
+  gap: 2%;
+}
+
+.cart-summary {
+  height: 30%;
+  padding: 4% 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid darkgrey; */
+  background-color: grey;
+  /* border-radius: 2px; */
+  border-top: 2px solid lightgrey;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+.total-info {
+  display: flex;
+}
+
+.checkout {
+  height: 4rem;
+  width: 10rem;
+}
+
+@media (max-width: 768px) {
+  .total-info {
+    flex-direction: column;
+  }
+
+  .buttons a {
+    width: 10rem;
+  }
+}

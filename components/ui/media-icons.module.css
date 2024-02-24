@@ -1,0 +1,42 @@
+.media-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1;
+  /* Additional styling, e.g., background, padding, etc. */
+}
+
+.media-icons button {
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.media-icons button:hover {
+  transform: scale(1.1);
+}
+
+.media-icons button:active {
+  transform: scale(1);
+}
+
+.media-icon {
+  padding: 8px 15px;
+  display: block;
+  margin-bottom: 12px;
+  background-color: rgba(139, 0, 0, 1);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  /* Add styling for the icon, e.g., font-size, color, etc. */
+}
+
+@media (max-width: 768px) {
+  .media-icons {
+    display: none;
+  }
+}
