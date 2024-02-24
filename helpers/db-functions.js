@@ -1,8 +1,7 @@
 import { MongoClient } from 'mongodb';
 
-const uri =
-  'mongodb+srv://FedeTester:Y88sfl52aqWbWeQT@cluster0.i41rsvv.mongodb.net/';
-const dbName = 'MTG-Tracker';
+const uri = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.i41rsvv.mongodb.net/`;
+const dbName = process.env.mongodb_database;
 
 export async function fetchData(collectionName, res) {
   const client = new MongoClient(uri, {
