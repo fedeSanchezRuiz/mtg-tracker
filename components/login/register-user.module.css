@@ -1,7 +1,7 @@
 .h2 {
   text-align: left;
   width: 60%;
-  margin-left: 5%;
+  margin-left: 10%;
 }
 
 .input-box {
@@ -44,9 +44,30 @@
 }
 
 .first-checkbox {
-  margin-top: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
 
 .second-checkbox {
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+}
+
+@media (max-width: 768px) {
+  .h2 {
+    margin-left: 0;
+    width: 80%;
+  }
+
+  .form {
+    width: 140%;
+  }
 }

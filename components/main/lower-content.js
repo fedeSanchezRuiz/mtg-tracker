@@ -3,6 +3,13 @@ import ArrowRightIcon from '../icons/arrow-right';
 import ArrowTopIcon from '../icons/arrow-top';
 import classes from './lower-content.module.css';
 
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
+
 export default function LowerContent() {
   return (
     <>
@@ -43,7 +50,10 @@ export default function LowerContent() {
         </div>
       </div>
 
-      <Link href='/'>
+      <Link
+        href='#'
+        onClick={scrollToTop}
+      >
         <div className={classes.bottom}>
           <ArrowTopIcon />
           <h2 className={classes.back}>BACK TO TOP</h2>

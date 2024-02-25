@@ -80,7 +80,21 @@
 }
 
 .social-media li {
-  padding: 2% 4%;
+  padding: 2% 3%;
+}
+
+.social-media button {
+  background-color: rgba(255, 0, 0, 0); /* Fully transparent background */
+  border: none;
+  cursor: pointer;
+}
+
+.social-media button:hover {
+  transform: scale(1.05);
+}
+
+.social-media button:active {
+  transform: scale(1);
 }
 
 @media (max-width: 768px) {

@@ -3,7 +3,7 @@ import { MongoClient } from 'mongodb';
 
 const uri = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.i41rsvv.mongodb.net/`;
 const dbName = process.env.mongodb_database;
-const collectionName = 'user-data';
+const collectionName = 'user-registration';
 
 async function saveUserData(data) {
   const client = new MongoClient(uri);
@@ -62,3 +62,4 @@ export default async function handler(req, res) {
     res.status(500).json({ message: 'Internal Server Error!' });
   }
 }
+

@@ -1,5 +1,5 @@
 import { useRef, useContext, useState, useEffect } from 'react';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { signIn } from 'next-auth/react';
 import { useSession } from 'next-auth/react';
 import NotificationContext from '@/store/notification-context';
@@ -33,7 +33,7 @@ export default function LoginForm() {
   const passwordRef = useRef();
   const notificationCtx = useContext(NotificationContext);
   // const loggedInCtx = useContext(LoggedInContext);
-  // const router = useRouter();
+  const router = useRouter();
 
   // useEffect(() => {
   //   getSession().then((session) => {
@@ -77,6 +77,7 @@ export default function LoginForm() {
           status: 'success',
         });
         console.log(result);
+        router.push('/');
       } else {
         const result = await createUser(
           enteredEmail,

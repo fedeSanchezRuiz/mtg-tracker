@@ -4,9 +4,7 @@ const uri = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb
 const dbName = process.env.mongodb_database;
 
 export async function fetchData(collectionName, res) {
-  const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-  });
+  const client = new MongoClient(uri);
 
   try {
     await client.connect();

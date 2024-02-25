@@ -1,85 +1,195 @@
+import { useRef, useContext, useState } from 'react';
+import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/react';
 import Button from '../ui/button';
 import Card from '../layout/card';
 import Link from 'next/link';
 import classes from './register-user.module.css';
+import NotificationContext from '@/store/notification-context';
+
+async function createUser(
+  email,
+  confirmEmail,
+  password,
+  confirmPassword
+) {
+  const response = await fetch('/api/auth/registration', {
+    method: 'POST',
+    body: JSON.stringify({
+      email,
+      confirmEmail,
+      password,
+      confirmPassword,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Something went wrong!');
+  }
+
+  return data;
+}
 
 export default function RegisterUser() {
+  const [isLogin, setIsLogin] = useState(true);
+  const emailRef = useRef();
+  const emailConfirmRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmRef = useRef();
+  const notificationCtx = useContext(NotificationContext);
+  const router = useRouter();
+
+  async function submitFormHandler(event) {
+    event.preventDefault();
+
+    const enteredEmail = emailRef.current.value;
+    const enteredConfirmedEmail = emailConfirmRef.current.value;
+    const enteredPassword = passwordRef.current.value;
+    const enteredConfirmedPassword =
+      passwordConfirmRef.current.value;
+
+    // const userData = {
+    //   email: enteredEmail,
+    //   password: enteredPassword,
+    // };
+    try {
+      notificationCtx.showNotification({
+        title: 'Logging in...',
+        message: 'Please wait...',
+        status: 'pending',
+      });
+      if (isLogin) {
+        const result = await signIn('credentials', {
+          redirect: false,
+          email: enteredEmail,
+          confirmEmail: enteredConfirmedEmail,
+          password: enteredPassword,
+          confirmPassword: enteredConfirmedPassword,
+        });
+        notificationCtx.showNotification({
+          title: 'Success!',
+          message: 'Welcome to MTG Tracker!',
+          status: 'success',
+        });
+        router.push('/');
+        console.log(result);
+      } else {
+        const result = await createUser(
+          enteredEmail,
+          enteredConfirmedEmail,
+          enteredPassword,
+          enteredConfirmedPassword
+        );
+        // console.log(result);
+      }
+    } catch (error) {
+      notificationCtx.showNotification({
+        title: 'Error!',
+        message: error.message || 'Something went wrong!',
+        status: 'error',
+      });
+      console.error(error);
+    }
+  }
+
   return (
     <Card>
       <h2 className={classes.h2}>Registration</h2>
-      <div className={classes['input-box']}>
-        <label htmlFor='Email'>Email Address</label>
-        <input
-          type='email'
-          id='Email'
-          placeholder='Enter Email'
-          required
-        />
-      </div>
-      <div className={classes['input-box']}>
-        <label htmlFor='Confirm-email'>Confirm Email</label>
-        <input
-          type='email'
-          id='Confirm-email'
-          placeholder='Confirm Email'
-          required
-        />
-      </div>
-      <div className={classes['input-box']}>
-        <label htmlFor='Password'>Password</label>
-        <input
-          type='password'
-          id='Password'
-          placeholder='Enter Password'
-          required
-        />
-      </div>
-      <div className={classes['input-box']}>
-        <label htmlFor='Confirm-password'>
-          Re-enter Password
-        </label>
-        <input
-          type='password'
-          id='Confirm-password'
-          placeholder='Confirm Password'
-          required
-        />
-      </div>
-      <div
-        className={`${classes.checkbox} ${classes['first-checkbox']}`}
+      <form
+        onSubmit={submitFormHandler}
+        className={classes.form}
       >
-        <input
-          type='checkbox'
-          id='agreeToPrivacyPolicy'
-        />
-        <label htmlFor='agreeToPrivacyPolicy'>
-          I agree to Card Kingdom's{' '}
-          <span className={classes.link}>
-            <Link href='/'>Privacy Policy</Link>
-          </span>{' '}
-          and{' '}
-          <span className={classes.link}>
-            <Link href='/'>Terms of Service</Link>
-          </span>
-          .
-        </label>
-      </div>
-      <div
-        className={`${classes.checkbox} ${classes['second-checkbox']}`}
-      >
-        <input
-          type='checkbox'
-          id='subscribeToNewsletter'
-        />
-        <label htmlFor='subscribeToNewsletter'>
-          Sign me up for your weekly newsletter with Magic news,
-          articles, brews, deals, and more.
-        </label>
-      </div>
-      <Button>Submit</Button>
-      <div className={classes.link}>
-        <Link href='/login'>Already member? Sign in here!</Link>
-      </div>
+        <div className={classes['input-box']}>
+          <label htmlFor='Email'>Email Address</label>
+          <input
+            type='email'
+            id='Email'
+            name='email'
+            placeholder='Enter Email'
+            ref={emailRef}
+            required
+          />
+        </div>
+        <div className={classes['input-box']}>
+          <label htmlFor='Confirm-email'>Confirm Email</label>
+          <input
+            type='email'
+            id='Confirm-email'
+            name='confirm-email'
+            placeholder='Confirm Email'
+            ref={emailConfirmRef}
+            required
+          />
+        </div>
+        <div className={classes['input-box']}>
+          <label htmlFor='Password'>Password</label>
+          <input
+            type='password'
+            id='Password'
+            name='password'
+            placeholder='Enter Password'
+            ref={passwordRef}
+            required
+          />
+        </div>
+        <div className={classes['input-box']}>
+          <label htmlFor='Confirm-password'>
+            Re-enter Password
+          </label>
+          <input
+            type='password'
+            id='Confirm-password'
+            name='confirm-password'
+            placeholder='Confirm Password'
+            ref={passwordConfirmRef}
+            required
+          />
+        </div>
+        <div
+          className={`${classes.checkbox} ${classes['first-checkbox']}`}
+        >
+          <input
+            type='checkbox'
+            id='agreeToPrivacyPolicy'
+            required
+          />
+          <label htmlFor='agreeToPrivacyPolicy'>
+            I agree to Card Kingdom's{' '}
+            <span className={classes.link}>
+              <Link href='/'>Privacy Policy</Link>
+            </span>{' '}
+            and{' '}
+            <span className={classes.link}>
+              <Link href='/'>Terms of Service</Link>
+            </span>
+            .
+          </label>
+        </div>
+        <div
+          className={`${classes.checkbox} ${classes['second-checkbox']}`}
+        >
+          <input
+            type='checkbox'
+            id='subscribeToNewsletter'
+            required
+          />
+          <label htmlFor='subscribeToNewsletter'>
+            Sign me up for your weekly newsletter with Magic
+            news, articles, brews, deals, and more.
+          </label>
+        </div>
+        <Button>Submit</Button>
+        <div className={classes.link}>
+          <Link href='/login'>
+            Already member? Sign in here!
+          </Link>
+        </div>
+      </form>
     </Card>
   );
 }

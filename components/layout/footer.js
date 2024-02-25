@@ -58,44 +58,44 @@ export default function Footer() {
           <h3>Social Media</h3>
           <ul className={classes['social-media']}>
             <li>
-              <Link href='/'>
+              <button>
                 <Image
                   src='/images/social-media/facebook-icon.png'
                   alt='Facebook logo'
                   height={32}
                   width={32}
                 />
-              </Link>
+              </button>
             </li>
             <li>
-              <Link href='/'>
+              <button>
                 <Image
                   src='/images/social-media/instagram-icon.png'
                   alt='Instagram logo'
                   height={32}
                   width={32}
                 />
-              </Link>
+              </button>
             </li>
             <li>
-              <Link href='/'>
+              <button>
                 <Image
                   src='/images/social-media/twitch-icon.png'
                   alt='Twitch logo'
                   height={32}
                   width={32}
                 />
-              </Link>
+              </button>
             </li>
             <li>
-              <Link href='/'>
+              <button>
                 <Image
                   src='/images/social-media/discord-icon.png'
                   alt='Discord logo'
                   height={32}
                   width={32}
                 />
-              </Link>
+              </button>
             </li>
           </ul>
         </nav>

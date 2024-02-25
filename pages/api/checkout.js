@@ -5,9 +5,7 @@ const dbName = process.env.mongodb_database;
 const collectionName = 'purchase-data';
 
 async function saveUserData(purchaseData) {
-  const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-  });
+  const client = new MongoClient(uri);
 
   try {
     await client.connect();

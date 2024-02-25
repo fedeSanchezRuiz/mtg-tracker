@@ -76,15 +76,11 @@ export default function MyCart() {
               </div>
               <p className={classes['cart-item-actions']}>
                 <button
-                  textOnly
                   onClick={() => cartCtx.removeItem(item.id)}
                 >
                   -
                 </button>
-                <button
-                  textOnly
-                  onClick={() => cartCtx.addItem(item)}
-                >
+                <button onClick={() => cartCtx.addItem(item)}>
                   +
                 </button>
               </p>
