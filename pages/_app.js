@@ -7,35 +7,38 @@ import { NotificationContextProvider } from '@/store/notification-context';
 import { LoggedInContextProvider } from '@/store/loggedIn-context';
 import { CartContextProvider } from '@/store/cart-context';
 import { UserProgressContextProvider } from '@/store/user-progress-context';
-import { SessionProvider } from 'next-auth/react';
+// import { SessionProvider } from 'next-auth/react';
 
-export default function App({ Component, session, pageProps }) {
+export default function App({
+  Component,
+  /*session,*/ pageProps,
+}) {
   return (
-    <SessionProvider session={session}>
-      <UserProgressContextProvider>
-        <CartContextProvider>
-          <LoggedInContextProvider>
-            <NotificationContextProvider>
-              <Layout>
-                <Head>
-                  <title>MTG Tracker</title>
-                  <meta
-                    name='description'
-                    content='MTG Tracker site for TCG Products'
-                  />
-                  <meta
-                    name='viewport'
-                    content='initial-scale=1, width=device-width'
-                  />
-                </Head>
-                <Component {...pageProps} />
-                <LowerContent />
-                <Footer />
-              </Layout>
-            </NotificationContextProvider>
-          </LoggedInContextProvider>
-        </CartContextProvider>
-      </UserProgressContextProvider>
-    </SessionProvider>
+    // <SessionProvider session={session}>
+    <UserProgressContextProvider>
+      <CartContextProvider>
+        <LoggedInContextProvider>
+          <NotificationContextProvider>
+            <Layout>
+              <Head>
+                <title>MTG Tracker</title>
+                <meta
+                  name='description'
+                  content='MTG Tracker site for TCG Products'
+                />
+                <meta
+                  name='viewport'
+                  content='initial-scale=1, width=device-width'
+                />
+              </Head>
+              <Component {...pageProps} />
+              <LowerContent />
+              <Footer />
+            </Layout>
+          </NotificationContextProvider>
+        </LoggedInContextProvider>
+      </CartContextProvider>
+    </UserProgressContextProvider>
+    // </SessionProvider>
   );
 }

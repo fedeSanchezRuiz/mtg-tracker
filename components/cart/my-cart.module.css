@@ -31,9 +31,6 @@
 .cart button:hover,
 .cart button:active {
   transform: scale(1.02);
-  /* background-color: #ffab04;
-  border-color: #ffab04;
-  color: #1f1a09; */
 }
 
 .modal-actions {

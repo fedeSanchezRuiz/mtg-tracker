@@ -37,7 +37,7 @@ export default function ProductsList() {
                 <img
                   src={product.source}
                   alt={product.name}
-                  width={260}
+                  width={300}
                   height={300}
                 />
               </Link>

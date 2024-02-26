@@ -1,4 +1,9 @@
-import { createContext, useReducer, useEffect } from 'react';
+import {
+  createContext,
+  useReducer,
+  useEffect,
+  useState,
+} from 'react';
 
 const CartContext = createContext({
   items: [],
@@ -24,7 +29,11 @@ function cartReducer(state, action) {
     } else {
       updatedItems.push({ ...action.item, quantity: 1 });
     }
-    return { ...state, items: updatedItems };
+    return {
+      ...state,
+      items: updatedItems,
+      notification: 'Item added successfully',
+    };
   }
   if (action.type === 'REMOVE_ITEM') {
     const existingCartItemIndex = state.items.findIndex(
@@ -44,7 +53,14 @@ function cartReducer(state, action) {
       };
       updatedItems[existingCartItemIndex] = updatedItem;
     }
-    return { ...state, items: updatedItems };
+    return {
+      ...state,
+      items: updatedItems,
+      notification: 'Item removed successfully',
+    };
+  }
+  if (action.type === 'HIDE_NOTIFICATION') {
+    return { ...state, notification: null };
   }
   if (action.type === 'LOAD_CART') {
     return { ...state, items: action.items };
@@ -55,21 +71,43 @@ function cartReducer(state, action) {
 export function CartContextProvider({ children }) {
   const [cart, dispatchCartAction] = useReducer(cartReducer, {
     items: [],
+    notification: null,
   });
+
+  const [timerId, setTimerId] = useState(null);
+
+  function showNotification(message) {
+    dispatchCartAction({ type: 'SHOW_NOTIFICATION', message });
+
+    if (timerId) {
+      clearTimeout(timerId);
+    }
+
+    const newTimerId = setTimeout(() => {
+      dispatchCartAction({ type: 'HIDE_NOTIFICATION' });
+    }, 800);
+
+    setTimerId(newTimerId);
+  }
 
   function addItem(item) {
     dispatchCartAction({ type: 'ADD_ITEM', item });
+    showNotification('Item added successfully');
   }
 
   function removeItem(id) {
     dispatchCartAction({ type: 'REMOVE_ITEM', id });
+    showNotification('Item removed successfully');
   }
 
   useEffect(() => {
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
       const parsedCart = JSON.parse(storedCart);
-      dispatchCartAction({ type: 'LOAD_CART', items: parsedCart });
+      dispatchCartAction({
+        type: 'LOAD_CART',
+        items: parsedCart,
+      });
     }
   }, []);
 
@@ -81,6 +119,7 @@ export function CartContextProvider({ children }) {
     items: cart.items,
     addItem,
     removeItem,
+    notification: cart.notification,
   };
 
   return (

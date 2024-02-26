@@ -1,7 +1,7 @@
 import { useRef, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { signIn } from 'next-auth/react';
-import { useSession } from 'next-auth/react';
+// import { signIn } from 'next-auth/react';
+// import { useSession } from 'next-auth/react';
 import NotificationContext from '@/store/notification-context';
 import LoggedInContext from '@/store/loggedIn-context';
 import Button from '@/components/ui/button';

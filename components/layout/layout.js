@@ -4,11 +4,14 @@ import MainNavigation from './main-nav';
 import NotificationContext from '@/store/notification-context';
 import MyCart from '../cart/my-cart';
 import UserProgressContext from '@/store/user-progress-context';
+import CartContext from '@/store/cart-context';
 import MediaIcons from '../ui/media-icons';
+import CartReminder from '../ui/cart-reminder';
 
 export default function Layout(props) {
   const notificationCtx = useContext(NotificationContext);
   const userProgressCtx = useContext(UserProgressContext);
+  const { notification } = useContext(CartContext);
 
   const activeNotification = notificationCtx.notification;
   const userProgress = userProgressCtx.progress;
@@ -23,6 +26,14 @@ export default function Layout(props) {
           title={activeNotification.title}
           message={activeNotification.message}
           status={activeNotification.status}
+        />
+      )}
+      {notification && (
+        <CartReminder
+          message={notification}
+          onClose={() =>
+            dispatchCartAction({ type: 'HIDE_NOTIFICATION' })
+          }
         />
       )}
       {userProgress && <MyCart />}
