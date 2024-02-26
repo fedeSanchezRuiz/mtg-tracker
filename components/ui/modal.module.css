@@ -8,7 +8,7 @@
   max-width: 40rem;
   animation: fade-slide-up 0.3s ease-out forwards;
   position: fixed;
-  top: 32%;
+  top: 25%;
   left: 29%;
   transform: translate(-50%, -50%);
 }

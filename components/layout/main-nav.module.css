@@ -82,11 +82,17 @@
   display: flex;
 }
 
-.search-container button {
+.drop-button {
   border-top-left-radius: 15px;
-  /* border-bottom-left-radius: 15px; */
   border-bottom: 2px solid grey;
   border-right: 2px solid grey;
+  cursor: pointer;
+}
+
+.glass {
+  border: none;
+  background-color: rgba(139, 0, 0, 0);
+  padding-left: 1%;
   cursor: pointer;
 }
 

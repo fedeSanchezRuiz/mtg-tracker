@@ -79,7 +79,7 @@ export default function MainNavigation() {
                 className={classes['search-container']}
                 ref={dropdownRef}
               >
-                <button onClick={handleToggleDropdown}>
+                <button onClick={handleToggleDropdown} className={classes['drop-button']}>
                   All Products
                 </button>
                 {showDropdown && (
@@ -106,7 +106,9 @@ export default function MainNavigation() {
                   name='search'
                   placeholder='Search Tracker'
                 />
-                <SearchIcon />
+                <button className={classes.glass}>
+                  <SearchIcon />
+                </button>
               </div>
             </li>
             <div className={classes['items-container']}>
