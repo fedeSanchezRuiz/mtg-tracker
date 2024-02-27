@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react';
+import { useContext, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { currencyFormatter } from '@/helpers/formatting-price';
 import Card from '../layout/card';
@@ -40,6 +40,12 @@ export default function Checkout() {
     },
     0
   );
+
+  useEffect(() => {
+    if (!loggedInCtx.loggedIn) {
+      router.push('/login');
+    }
+  }, [loggedInCtx.loggedIn, router]);
 
   function openModalHandler() {
     userProgressCtx.showCart();
