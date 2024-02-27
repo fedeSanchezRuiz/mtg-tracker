@@ -100,6 +100,7 @@ export default function Checkout() {
         message: 'Your order has been sent successfully!',
         status: 'success',
       });
+      cartCtx.clearCart();
       router.push('/');
     } catch (error) {
       notificationCtx.showNotification({

@@ -65,6 +65,12 @@ function cartReducer(state, action) {
   if (action.type === 'LOAD_CART') {
     return { ...state, items: action.items };
   }
+  if (action.type === 'CLEAR_CART') {
+    return {
+      ...state,
+      items: [],
+    };
+  }
   return state;
 }
 
@@ -100,6 +106,10 @@ export function CartContextProvider({ children }) {
     showNotification('Item removed successfully');
   }
 
+  function clearCart() {
+    dispatchCartAction({ type: 'CLEAR_CART' });
+  }
+
   useEffect(() => {
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
@@ -119,6 +129,7 @@ export function CartContextProvider({ children }) {
     items: cart.items,
     addItem,
     removeItem,
+    clearCart,
     notification: cart.notification,
   };
 
