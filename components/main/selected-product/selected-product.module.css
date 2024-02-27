@@ -38,8 +38,8 @@
 
 .going-back svg {
   display: flex;
-  width: 16px; /* Adjust the width as needed */
-  height: 16px; /* Adjust the height as needed */
+  width: 16px;
+  height: 16px;
   margin-right: 10px;
 }
 
@@ -61,8 +61,8 @@
 }
 
 .description svg {
-  width: 30px; /* Adjust the width as needed */
-  height: 30px; /* Adjust the height as needed */
+  width: 30px;
+  height: 30px;
   margin-top: 1rem;
   margin-bottom: 1rem;
   margin-left: 0.7rem;
@@ -77,8 +77,8 @@
 }
 
 .choices svg {
-  width: 25px; /* Adjust the width as needed */
-  height: 25px; /* Adjust the height as needed */
+  width: 25px;
+  height: 25px;
   margin-top: 0.9rem;
   margin-right: 0.5rem;
 }

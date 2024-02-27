@@ -1,12 +1,11 @@
 import { useContext } from 'react';
+import { currencyFormatter } from '@/helpers/formatting-price';
 import BackArrowIcon from '@/components/icons/back-arrow';
 import CartIcon from '@/components/icons/cart';
 import Link from 'next/link';
 import Head from 'next/head';
-import classes from './selected-expansion.module.css';
 import CartContext from '@/store/cart-context';
-import { formatRevalidate } from 'next/dist/server/lib/revalidate';
-import { currencyFormatter } from '@/helpers/formatting-price';
+import classes from './selected-expansion.module.css';
 
 export default function SelectedExpansion({
   selectedExpansion,

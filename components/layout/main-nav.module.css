@@ -39,10 +39,10 @@
 }
 
 .navigation li.search input {
-  width: 300px; /* Set the desired width */
-  height: 40px; /* Set the desired height */
-  padding: 10px; /* Adjust padding for better aesthetics */
-  font-size: 16px; /* Adjust font size if needed */
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   margin-right: 5%;
@@ -51,11 +51,11 @@
 .navigation li.search svg {
   position: absolute;
   top: 50%;
-  right: 10px; /* Adjust the right position based on your layout */
+  right: 10px;
   transform: translateY(-50%);
-  fill: white; /* Adjust the fill color based on your design */
-  width: 20px; /* Set the desired width */
-  height: 20px; /* Set the desired height */
+  fill: white;
+  width: 20px;
+  height: 20px;
 }
 
 .items-container {
@@ -63,11 +63,11 @@
 }
 
 .items {
-  max-width: 4rem; /* Increase the max-width as needed */
+  max-width: 4rem;
   font-size: small;
   text-align: center;
-  width: 80px; /* Increase the width as needed */
-  height: 100%; /* Set the height to 100% */
+  width: 80px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,30 +107,26 @@
   position: absolute;
   top: 78%;
   left: 4%;
-  background-color: grey; /* Set the background color of the dropdown */
-  border: 1px solid darkgrey; /* Add a border for better visibility */
+  background-color: grey;
+  border: 1px solid darkgrey;
   border-radius: 5px;
   border-top-left-radius: 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-  z-index: 1; /* Ensure the dropdown appears above other elements */
-  padding: 10px; /* Adjust padding for better aesthetics */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   width: 12rem;
 }
 
 .dropdown a {
-  color: white; /* Set the text color of dropdown links */
+  color: white;
   text-decoration: none;
-  padding: 8px 0; /* Adjust padding for better aesthetics */
+  padding: 8px 0;
 }
 
 .dropdown a:hover {
-  background-color: rgb(
-    62,
-    62,
-    62
-  ); /* Add a background color on hover for better feedback */
+  background-color: rgb(62, 62, 62);
   border-radius: 5px;
 }
 
@@ -151,7 +147,7 @@
   .navigation {
     flex-direction: column;
   }
-  .dropdown { 
+  .dropdown {
     width: 7rem;
   }
 }

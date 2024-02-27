@@ -8,31 +8,31 @@
 }
 
 .container > div {
-  max-width: 200px; /* Adjust the max-width as needed */
+  max-width: 200px;
   text-align: center;
 }
 
 .container h3 {
-  font-size: 1.5rem; /* Adjust the font size as needed */
+  font-size: 1.5rem;
   padding-bottom: 2%;
 }
 
 .container p {
-  font-size: 1rem; /* Adjust the font size as needed */
+  font-size: 1rem;
 }
 
 .container a {
   display: flex;
   align-items: center;
-  font-size: 1rem; /* Adjust the font size as needed */
+  font-size: 1rem;
   color: darkgray;
   padding-top: 2%;
 }
 
 .container svg {
-  width: 1em; /* Adjust the arrow icon size */
-  height: 1em; /* Adjust the arrow icon size */
-  margin-left: 5px; /* Adjust the spacing between text and icon */
+  width: 1em;
+  height: 1em;
+  margin-left: 5px;
   color: darkgray;
 }
 
@@ -60,7 +60,7 @@
   text-align: center;
   background-color: red;
   padding-bottom: 1.6%;
-  position: relative; /* Add position relative */
+  position: relative;
   border-bottom: 3px solid rgb(242, 85, 85);
 }
 

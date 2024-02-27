@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
+import { currencyFormatter } from '@/helpers/formatting-price';
 import Link from 'next/link';
-import classes from './products.module.css';
 import ArrowLeftIcon from '../icons/arrow-left';
 import ArrowRightIcon from '../icons/arrow-right';
-import { currencyFormatter } from '@/helpers/formatting-price';
+import classes from './products.module.css';
 
 export default function Products() {
   const itemsPerPage = 5;
@@ -32,12 +32,11 @@ export default function Products() {
   }, []);
 
   useEffect(() => {
-    // Automatic slide every 4 seconds
     const intervalId = setInterval(() => {
       setCurrentPage((prevPage) => (prevPage % totalPages) + 1);
     }, 4000);
 
-    return () => clearInterval(intervalId); // Cleanup on component unmount
+    return () => clearInterval(intervalId);
   }, [currentPage, totalPages]);
 
   const handlePrevPage = () => {

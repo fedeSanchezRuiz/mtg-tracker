@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { currencyFormatter } from '@/helpers/formatting-price';
 import Link from 'next/link';
 import CartIcon from '@/components/icons/cart';
 import HeartIcon from '@/components/icons/heart-icon';
@@ -9,7 +10,6 @@ import MinusIcon from '@/components/icons/minus-icon';
 import BackArrowIcon from '@/components/icons/back-arrow';
 import CartContext from '@/store/cart-context';
 import UserProgressContext from '@/store/user-progress-context';
-import { currencyFormatter } from '@/helpers/formatting-price';
 
 export default function SelectedProduct({ product }) {
   const [toggleDescription, setToggleDescription] =

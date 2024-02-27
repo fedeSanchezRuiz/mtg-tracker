@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import classes from './contact.module.css';
 import Button from '../ui/button';
+import classes from './contact.module.css';
 
 export default function ContactAbout() {
   return (
@@ -38,9 +38,7 @@ export default function ContactAbout() {
               want to help you build your gaming community.
             </p>
             <Link href='/contact-us'>
-              <Button>
-                CONTACT US
-              </Button>
+              <Button>CONTACT US</Button>
             </Link>
           </div>
         </div>
@@ -57,9 +55,7 @@ export default function ContactAbout() {
               and we'll try to track it down for you!
             </p>
             <Link href='/about-us'>
-              <Button>
-                ABOUT US
-              </Button>
+              <Button>ABOUT US</Button>
             </Link>
           </div>
           <img

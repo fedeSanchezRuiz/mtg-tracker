@@ -7,7 +7,6 @@ export default function SelectedCardPage({ card }) {
 }
 
 export async function getStaticPaths() {
-  // Fetch the list of expansions
   const filePath = path.join(
     process.cwd(),
     'data',
@@ -24,12 +23,11 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false, // Set to true if you want to enable incremental static regeneration for new paths
+    fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
-  // Fetch data for the specific card using params.expansionId and params.cardId
   const filePath = path.join(
     process.cwd(),
     'data',
@@ -45,10 +43,6 @@ export async function getStaticProps({ params }) {
   const selectedCard = selectedExpansion.cards.find(
     (card) => card.id === params.cardId
   );
-
-  // if (!selectedCard) {
-  //   return { notFound: true };
-  // }
 
   return {
     props: {

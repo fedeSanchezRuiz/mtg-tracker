@@ -1,10 +1,10 @@
 import { useRef, useContext } from 'react';
 import { useRouter } from 'next/router';
-import NotificationContext from '@/store/notification-context';
-import LoggedInContext from '@/store/loggedIn-context';
 import Button from '../ui/button';
 import Card from '../layout/card';
 import Link from 'next/link';
+import NotificationContext from '@/store/notification-context';
+import LoggedInContext from '@/store/loggedIn-context';
 import classes from './register-user.module.css';
 
 export default function RegisterUser() {

@@ -2,13 +2,13 @@
   position: relative;
   width: 100%;
   height: 20rem;
-  overflow: hidden; /* Ensure the image doesn't overflow the container */
+  overflow: hidden;
 }
 
 .image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* This property ensures the image covers the entire container */
+  object-fit: cover;
   display: block;
 }
 
@@ -31,16 +31,14 @@
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-/* .image div:hover, */
 .image li:hover {
   color: lightgray;
-  transform: scale(1.05); /* increase scale on hover */
+  transform: scale(1.05);
 }
 
-/* .image div:hover */
 .image li:active {
   color: white;
-  transform: scale(1); /* revert to original scale on click */
+  transform: scale(1);
 }
 
 @media (max-width: 768px) {

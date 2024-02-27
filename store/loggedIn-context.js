@@ -33,7 +33,10 @@ export function LoggedInContextProvider(props) {
     // Set an expiration time (24 hours in milliseconds)
     const expirationTime = 24 * 60 * 60 * 1000;
     const expirationDate = new Date().getTime() + expirationTime;
-    localStorage.setItem('tokenExpiration', expirationDate.toString());
+    localStorage.setItem(
+      'tokenExpiration',
+      expirationDate.toString()
+    );
   };
 
   const logOut = () => {

@@ -35,11 +35,9 @@
   width: 50%;
   padding: 2% 0;
   line-height: 25px;
-  /* Add any other styles as needed */
 }
 
 .left-box {
-  /* Add styles for the left box, e.g., aligning to the right */
   text-align: right;
   border-right: 1px solid grey;
   padding: 0 5%;
@@ -47,7 +45,6 @@
 }
 
 .right-box {
-  /* Add styles for the right box, e.g., aligning to the left */
   text-align: left;
 }
 
@@ -87,7 +84,6 @@
   }
 
   .right-box Button {
-    /* Apply styles specific to the second button in the right box */
     align-self: center;
   }
 

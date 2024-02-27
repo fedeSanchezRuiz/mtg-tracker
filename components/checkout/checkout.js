@@ -1,14 +1,14 @@
-import Card from '../layout/card';
-import Link from 'next/link';
-import classes from './checkout.module.css';
-import Button from '../ui/button';
 import { useContext, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { currencyFormatter } from '@/helpers/formatting-price';
+import Card from '../layout/card';
+import Link from 'next/link';
+import Button from '../ui/button';
 import CartContext from '@/store/cart-context';
 import LoggedInContext from '@/store/loggedIn-context';
 import UserProgressContext from '@/store/user-progress-context';
 import NotificationContext from '@/store/notification-context';
+import classes from './checkout.module.css';
 
 export default function Checkout() {
   const cartCtx = useContext(CartContext);

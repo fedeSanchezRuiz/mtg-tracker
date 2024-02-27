@@ -1,5 +1,5 @@
-import ReactDOM from 'react-dom';
 import { useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import CheckIcon from '../icons/check-icon';
 import classes from './cart-reminder.module.css';
 

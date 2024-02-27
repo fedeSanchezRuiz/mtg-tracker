@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import classes from './header.module.css';
 import PreorderButton from '../ui/preorder-button';
+import classes from './header.module.css';
 
 export default function Header() {
   const [expansionsList, setExpansionsList] = useState([]);

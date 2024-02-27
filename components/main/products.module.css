@@ -21,21 +21,20 @@
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  padding: 0; /* Remove default padding on the ul element */
-  list-style: none; /* Remove default list styling */
+  padding: 0;
+  list-style: none;
 }
 
 .items {
   width: 200px;
   margin: 20px;
   text-align: center;
-  position: relative; /* Add relative positioning to create a stacking context */
+  position: relative;
 }
 
 .items img {
   width: 100%;
   height: auto;
-  /* transition: transform 0.3s ease; */
 }
 
 .items h3 {
@@ -58,12 +57,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px; /* Adjust margin as needed */
+  margin-top: 10px;
 }
 
 .pagination svg {
-  width: 4em; /* Adjust the arrow icon size */
-  height: 4em; /* Adjust the arrow icon size */
+  width: 4em;
+  height: 4em;
   color: darkred;
 }
 

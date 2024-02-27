@@ -1,14 +1,14 @@
-import Link from 'next/link';
 import { useState, useEffect, useRef, useContext } from 'react';
+import Link from 'next/link';
+import Button from '../ui/button';
 import UserIcon from '../icons/user';
 import SearchIcon from '../icons/search';
 import CartIcon from '../icons/cart';
 import MoneyIcon from '../icons/money';
-import classes from './main-nav.module.css';
 import LoggedInContext from '@/store/loggedIn-context';
 import CartContext from '@/store/cart-context';
 import UserProgressContext from '@/store/user-progress-context';
-import Button from '../ui/button';
+import classes from './main-nav.module.css';
 
 export default function MainNavigation() {
   const [showDropdown, setShowDropdown] = useState(false);

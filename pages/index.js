@@ -1,7 +1,7 @@
-import ContactAbout from '@/components/main/contact';
 import Header from '@/components/main/header';
-import LastSets from '@/components/main/last-sets';
 import Products from '@/components/main/products';
+import LastSets from '@/components/main/last-sets';
+import ContactAbout from '@/components/main/contact';
 
 export default function HomePage({ lastSets, productList }) {
   return (

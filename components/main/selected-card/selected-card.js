@@ -1,15 +1,15 @@
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
+import { currencyFormatter } from '@/helpers/formatting-price';
 import Link from 'next/link';
 import CartIcon from '@/components/icons/cart';
 import HeartIcon from '@/components/icons/heart-icon';
 import BellIcon from '@/components/icons/bell-icon';
 import BackArrowIcon from '@/components/icons/back-arrow';
 import Head from 'next/head';
-import classes from './selected-card.module.css';
 import CartContext from '@/store/cart-context';
 import UserProgressContext from '@/store/user-progress-context';
-import { currencyFormatter } from '@/helpers/formatting-price';
+import classes from './selected-card.module.css';
 
 export default function SelectedCard({ card }) {
   const cartCtx = useContext(CartContext);

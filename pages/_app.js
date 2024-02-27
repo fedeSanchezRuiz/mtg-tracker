@@ -7,14 +7,9 @@ import { NotificationContextProvider } from '@/store/notification-context';
 import { LoggedInContextProvider } from '@/store/loggedIn-context';
 import { CartContextProvider } from '@/store/cart-context';
 import { UserProgressContextProvider } from '@/store/user-progress-context';
-// import { SessionProvider } from 'next-auth/react';
 
-export default function App({
-  Component,
-  /*session,*/ pageProps,
-}) {
+export default function App({ Component, pageProps }) {
   return (
-    // <SessionProvider session={session}>
     <UserProgressContextProvider>
       <CartContextProvider>
         <LoggedInContextProvider>
@@ -39,6 +34,5 @@ export default function App({
         </LoggedInContextProvider>
       </CartContextProvider>
     </UserProgressContextProvider>
-    // </SessionProvider>
   );
 }

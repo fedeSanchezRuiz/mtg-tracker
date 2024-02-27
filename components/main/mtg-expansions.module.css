@@ -29,7 +29,7 @@
 }
 
 .title img:hover {
-  filter: brightness(0.96); /* Darken the image on hover */
+  filter: brightness(0.96);
 }
 
 @media (max-width: 768px) {

@@ -1,6 +1,5 @@
-import ReactDOM from 'react-dom';
-// import { createPortal } from 'react-dom';
 import { useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
 import classes from './modal.module.css';
 
 export default function Modal({

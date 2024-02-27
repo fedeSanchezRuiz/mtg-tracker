@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 
 const UserProgressContext = createContext({
-  progress: '', // 'cart', 'checkout'
+  progress: '',
   showCart: () => {},
   hideCart: () => {},
   showCheckout: () => {},

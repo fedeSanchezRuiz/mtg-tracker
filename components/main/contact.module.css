@@ -25,8 +25,8 @@
   font-weight: bold;
   padding: 2% 5%;
   line-height: 25px;
-  position: relative; /* Set position to relative */
-  z-index: 1; /* Set a higher z-index to appear above the background image */
+  position: relative;
+  z-index: 1;
 }
 
 .wrapper button {
@@ -36,7 +36,7 @@
 
 .container {
   display: flex;
-  flex-direction: column; /* Initially, use column layout for small screens */
+  flex-direction: column;
   justify-content: space-around;
   background-color: whitesmoke;
   align-items: stretch;
@@ -45,7 +45,7 @@
 }
 
 .container img {
-  width: 50%; /* Make the images responsive within their containers */
+  width: 50%;
   flex-grow: 1;
   filter: grayscale(20%);
 }
@@ -54,11 +54,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; /* Center text for small screens */
-  position: absolute; /* Set position to absolute */
+  align-items: center;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Make text take the full width of the container */
+  width: 100%;
 }
 
 .first-text,
@@ -72,35 +72,32 @@
   background: linear-gradient(
       to top,
       rgba(220, 220, 220, 0.3),
-      /* Lighter gray */ rgba(240, 240, 240, 0.7)
-        /* Light gray */
+      rgba(240, 240, 240, 0.7)
     ),
     url('https://media.meer.com/attachments/93eee6f5e5acfeb8898128a17635c65650fa5c4d/store/fill/1090/613/a26e45b7e8e77055e49736259147e860d64912d25ab778f4d4912896ea37/Ilustracion-de-La-comunidad-del-anillo-primera-pelicula-de-la-trilogia-de-El-Senor-de-los.jpg');
-  background-size: cover; /* Make the background image cover the entire container */
-  background-position: center; /* Center the background image */
+  background-size: cover;
+  background-position: center;
 }
 
 .second-text {
   background: linear-gradient(
       to top,
       rgba(220, 220, 220, 0.3),
-      /* Lighter gray */ rgba(240, 240, 240, 0.7)
-        /* Light gray */
+      rgba(240, 240, 240, 0.7)
     ),
     url('https://www.dexerto.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.com/wp-content/uploads/2023/10/05/dungeons-and-dragons-bastion-art.jpg');
-  background-size: cover; /* Make the background image cover the entire container */
-  background-position: center; /* Center the background image */
+  background-size: cover;
+  background-position: center;
 }
 
 @media (min-width: 768px) {
-  /* Apply the following styles for screens wider than 768px */
   .container {
-    flex-direction: row; /* Use row layout for larger screens */
-    height: auto; /* Adjust height as needed */
+    flex-direction: row;
+    height: auto;
   }
 
   .text {
-    text-align: left; /* Align text to the left for larger screens */
+    text-align: left;
     font-size: 19px;
   }
 }
