@@ -7,6 +7,10 @@ export default function Header() {
   const [expansionsList, setExpansionsList] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const filteredExpansions = expansionsList.filter(
+    (set) => set.id !== 'murders-at-karlov-manor'
+  );
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -41,7 +45,7 @@ export default function Header() {
             Loading...
           </p>
         ) : (
-          expansionsList.map((set) => (
+          filteredExpansions.map((set) => (
             <li key={set.name}>
               <Link href={`/expansions/${set.id}`}>
                 {set.name}
