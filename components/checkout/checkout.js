@@ -105,6 +105,12 @@ export default function Checkout() {
     }
   }
 
+  const userEmail = loggedInCtx.loggedIn
+    ? loggedInCtx.email
+    : '';
+
+  console.log(userEmail); //Check this information
+
   return (
     <Card>
       <div className={classes.container}>
@@ -118,7 +124,8 @@ export default function Checkout() {
           </Link>
         </div>
         <h4 className={classes.username}>
-          Hi {loggedInCtx.email}, welcome to MTG Tracker!
+          Hi {userEmail ? userEmail : 'Guest'}, welcome to MTG
+          Tracker!
         </h4>
         <div className={classes['total-info']}>
           <form
@@ -146,7 +153,9 @@ export default function Checkout() {
               </div>
             </div>
             <div>
-              <label htmlFor='CompanyName'>Company Name (Optional)</label>
+              <label htmlFor='CompanyName'>
+                Company Name (Optional)
+              </label>
               <input
                 id='CompanyName'
                 type='text'

@@ -73,6 +73,12 @@
   justify-content: center;
 }
 
+.items button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 .items svg {
   height: 33px;
   width: 33px;

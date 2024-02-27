@@ -1,47 +1,19 @@
-import { useRef, useContext, useState } from 'react';
+import { useRef, useContext } from 'react';
 import { useRouter } from 'next/router';
-import { signIn } from 'next-auth/react';
+import NotificationContext from '@/store/notification-context';
+import LoggedInContext from '@/store/loggedIn-context';
 import Button from '../ui/button';
 import Card from '../layout/card';
 import Link from 'next/link';
 import classes from './register-user.module.css';
-import NotificationContext from '@/store/notification-context';
-
-async function createUser(
-  email,
-  confirmEmail,
-  password,
-  confirmPassword
-) {
-  const response = await fetch('/api/auth/registration', {
-    method: 'POST',
-    body: JSON.stringify({
-      email,
-      confirmEmail,
-      password,
-      confirmPassword,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message || 'Something went wrong!');
-  }
-
-  return data;
-}
 
 export default function RegisterUser() {
-  const [isLogin, setIsLogin] = useState(true);
   const emailRef = useRef();
   const emailConfirmRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const notificationCtx = useContext(NotificationContext);
+  const loggedInCtx = useContext(LoggedInContext);
   const router = useRouter();
 
   async function submitFormHandler(event) {
@@ -53,40 +25,38 @@ export default function RegisterUser() {
     const enteredConfirmedPassword =
       passwordConfirmRef.current.value;
 
-    // const userData = {
-    //   email: enteredEmail,
-    //   password: enteredPassword,
-    // };
+    const registrationData = {
+      email: enteredEmail,
+      confirmedEmail: enteredConfirmedEmail,
+      password: enteredPassword,
+      confirmedPassword: enteredConfirmedPassword,
+    };
+
     try {
       notificationCtx.showNotification({
-        title: 'Logging in...',
+        title: 'Creating user...',
         message: 'Please wait...',
         status: 'pending',
       });
-      if (isLogin) {
-        const result = await signIn('credentials', {
-          redirect: false,
-          email: enteredEmail,
-          confirmEmail: enteredConfirmedEmail,
-          password: enteredPassword,
-          confirmPassword: enteredConfirmedPassword,
-        });
-        notificationCtx.showNotification({
-          title: 'Success!',
-          message: 'Welcome to MTG Tracker!',
-          status: 'success',
-        });
-        router.push('/');
-        console.log(result);
-      } else {
-        const result = await createUser(
-          enteredEmail,
-          enteredConfirmedEmail,
-          enteredPassword,
-          enteredConfirmedPassword
-        );
-        // console.log(result);
+      const response = await fetch('/api/auth/registration', {
+        method: 'POST',
+        body: JSON.stringify(registrationData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong!');
       }
+      const data = await response.json();
+
+      notificationCtx.showNotification({
+        title: 'Success!',
+        message: 'Welcome to MTG Tracker!',
+        status: 'success',
+      });
+      loggedInCtx.logIn(true);
+      router.push('/');
     } catch (error) {
       notificationCtx.showNotification({
         title: 'Error!',

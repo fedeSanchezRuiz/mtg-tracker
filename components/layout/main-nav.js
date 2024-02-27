@@ -9,12 +9,11 @@ import LoggedInContext from '@/store/loggedIn-context';
 import CartContext from '@/store/cart-context';
 import UserProgressContext from '@/store/user-progress-context';
 import Button from '../ui/button';
-// import { useSession, signOut } from 'next-auth/react';
 
 export default function MainNavigation() {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
-  const { loggedIn } = useContext(LoggedInContext);
+  const loggedInCtx = useContext(LoggedInContext);
   const cartCtx = useContext(CartContext);
   const userProgressCtx = useContext(UserProgressContext);
 
@@ -28,14 +27,6 @@ export default function MainNavigation() {
   function showCartHandler() {
     userProgressCtx.showCart();
   }
-  // const { data: session, status } = useSession();
-
-  // console.log(session);
-  // console.log(status);
-
-  // const logoutHandler = () => {
-  //   signOut();
-  // };
 
   const handleToggleDropdown = () => {
     setShowDropdown((prev) => !prev);
@@ -49,6 +40,11 @@ export default function MainNavigation() {
       setShowDropdown(false);
     }
   };
+
+  function logoutHandler() {
+    loggedInCtx.logOut();
+    localStorage.removeItem('cart');
+  }
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
@@ -79,7 +75,10 @@ export default function MainNavigation() {
                 className={classes['search-container']}
                 ref={dropdownRef}
               >
-                <button onClick={handleToggleDropdown} className={classes['drop-button']}>
+                <button
+                  onClick={handleToggleDropdown}
+                  className={classes['drop-button']}
+                >
                   All Products
                 </button>
                 {showDropdown && (
@@ -113,32 +112,25 @@ export default function MainNavigation() {
             </li>
             <div className={classes['items-container']}>
               <li>
-                <div className={classes.items}>
-                  <Link href='/login'>
-                    {!loggedIn ? 'LOGIN' : 'LOGOUT'}
-                    <UserIcon />
-                  </Link>
-                </div>
-                {/* {loggedIn && (
-                <button onClick={logoutHandler}>
-                  <div className={classes.items}>LOGOUT</div>
-                  <div>
-                    <UserIcon />
+                {loggedInCtx.loggedIn && (
+                  <div className={classes.items}>
+                    <button onClick={logoutHandler}>
+                      LOGOUT
+                      <UserIcon />
+                    </button>
                   </div>
-                </button>
-              )}
-              {!loggedIn && (
-                <Link href='/login'>
-                  <div className={classes.items}>LOGIN</div>
-                  <div>
-                    <UserIcon />
+                )}
+                {!loggedInCtx.loggedIn && (
+                  <div className={classes.items}>
+                    <Link href='/login'>
+                      LOGIN
+                      <UserIcon />
+                    </Link>
                   </div>
-                </Link>
-              )} */}
+                )}
               </li>
               <li>
                 <div className={classes.items}>
-                  {/* <Link href='/cart'> */}
                   <Button
                     textOnly
                     onClick={showCartHandler}
@@ -146,7 +138,6 @@ export default function MainNavigation() {
                     BUY ({totalCartItems})
                     <CartIcon />
                   </Button>
-                  {/* </Link> */}
                 </div>
               </li>
               <li>

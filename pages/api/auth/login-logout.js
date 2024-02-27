@@ -5,7 +5,7 @@ const uri = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb
 const dbName = process.env.mongodb_database;
 const collectionName = 'user-data';
 
-async function saveUserData(data) {
+async function saveUserData(userData) {
   const client = new MongoClient(uri);
 
   try {
@@ -13,13 +13,12 @@ async function saveUserData(data) {
     const database = client.db(dbName);
     const collection = database.collection(collectionName);
     const existingUser = await collection.findOne({
-      email: data.email,
+      email: userData.email,
     });
     if (existingUser) {
-      res.status(422).json({ message: 'User already exists!' });
-      return;
+      return { error: 'User already exists!' };
     }
-    const result = await collection.insertOne(data);
+    const result = await collection.insertOne(userData);
   } finally {
     await client.close();
   }
@@ -45,18 +44,16 @@ export default async function handler(req, res) {
       return;
     }
 
-    const hashedPassword = hashPassword(password);
+    const hashedPassword = await hashPassword(password);
 
     const userData = {
       email,
-      password: await hashedPassword,
+      password: hashedPassword,
     };
 
     await saveUserData(userData);
 
-    res
-      .status(201)
-      .json({ message: 'Welcome to MTG Tracker!', userData });
+    res.status(201).json({ message: 'Welcome to MTG Tracker!' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal Server Error!' });
