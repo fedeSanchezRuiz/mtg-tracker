@@ -42,8 +42,11 @@ export default function MainNavigation() {
   };
 
   function logoutHandler() {
-    loggedInCtx.logOut();
-    localStorage.removeItem('cart');
+    const proceed = window.confirm('Are you sure?');
+    if (proceed) {
+      loggedInCtx.logOut();
+      localStorage.removeItem('cart');
+    }
   }
 
   useEffect(() => {
