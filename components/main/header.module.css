@@ -50,3 +50,14 @@
     padding: 0.2rem 0;
   }
 }
+
+@media (max-width: 430px) {
+  .image {
+    height: 16rem;
+    font-size: 11px;
+  }
+
+  .image li {
+    padding-bottom: 3%;
+  }
+}

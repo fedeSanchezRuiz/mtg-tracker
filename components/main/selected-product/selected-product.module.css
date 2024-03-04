@@ -18,6 +18,12 @@
   font-weight: bold;
 }
 
+.container img {
+  max-width: 60%;
+  height: auto;
+  max-height: 500px;
+}
+
 .text {
   display: flex;
   flex-direction: column;

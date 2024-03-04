@@ -27,6 +27,12 @@
   width: 34rem;
 }
 
+.container img {
+  max-width: 60%;
+  height: auto;
+  max-height: 300px;
+}
+
 @media (max-width: 768px) {
   .container h1 {
     background-color: darkred;

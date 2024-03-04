@@ -6,6 +6,10 @@ import classes from './header.module.css';
 export default function Header() {
   const [expansionsList, setExpansionsList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [buttonStyles, setButtonStyles] = useState({
+    fontSize: '30px',
+    width: '20rem',
+  });
 
   const filteredExpansions = expansionsList.filter(
     (set) => set.id !== 'murders-at-karlov-manor'
@@ -26,12 +30,37 @@ export default function Header() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const updateButtonStyles = () => {
+      const windowWidth = window.innerWidth;
+
+      if (windowWidth < 600) {
+        setButtonStyles({
+          fontSize: '20px',
+          width: '15rem',
+        });
+      } else {
+        setButtonStyles({
+          fontSize: '30px',
+          width: '20rem',
+        });
+      }
+    };
+
+    updateButtonStyles();
+    window.addEventListener('resize', updateButtonStyles);
+
+    return () => {
+      window.removeEventListener('resize', updateButtonStyles);
+    };
+  }, []);
+
   return (
     <div className={classes.image}>
       <PreorderButton
         href='/expansions/murders-at-karlov-manor'
-        fontSize='30px'
-        width='20rem'
+        fontSize={buttonStyles.fontSize}
+        width={buttonStyles.width}
       >
         PREORDER NOW
       </PreorderButton>

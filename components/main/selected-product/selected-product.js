@@ -101,8 +101,8 @@ export default function SelectedProduct({ product }) {
       <img
         src={product.source}
         alt={product.name}
-        height={500}
-        width={450}
+        // height={500}
+        // width={450}
       />
       <div className={classes.checkout}>
         <h2>Shopping Cart</h2>
