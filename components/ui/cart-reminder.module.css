@@ -11,8 +11,8 @@
   transform: translate(-50%, -50%);
   animation: fade-slide-up 0.3s ease-out forwards;
   padding: 10px;
-  background: rgba(255, 39, 39, 0.8);
-  color: black;
+  background: rgba(116, 31, 31, 0.8);
+  color: whitesmoke;
   font-weight: bold;
   border-radius: 5px;
   z-index: 1000;

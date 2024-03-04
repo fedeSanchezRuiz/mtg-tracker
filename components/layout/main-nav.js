@@ -45,6 +45,7 @@ export default function MainNavigation() {
     const proceed = window.confirm('Are you sure?');
     if (proceed) {
       loggedInCtx.logOut();
+      cartCtx.clearCart();
       localStorage.removeItem('cart');
     }
   }

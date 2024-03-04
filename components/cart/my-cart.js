@@ -52,42 +52,48 @@ export default function MyCart() {
           MTG Tracker
         </h4>
       </div>
-      <ul>
-        {cartCtx.items.map((item) => (
-          <li
-            key={item.id}
-            className={classes['cart-item']}
-          >
-            <div className={classes['your-purchase']}>
-              <div className={classes['img-and-name']}>
-                <img
-                  src={item.image || item.source}
-                  alt={item.name}
-                  width={40}
-                  height={50}
-                />{' '}
-                <div className={classes['inner-text']}>
-                  <div>{item.name}</div>
-                  <p>{item.quantity}</p>
+      {cartCtx.items.length === 0 ? (
+        <p className={classes['empty-cart']}>
+          Your cart is currently empty.
+        </p>
+      ) : (
+        <ul>
+          {cartCtx.items.map((item) => (
+            <li
+              key={item.id}
+              className={classes['cart-item']}
+            >
+              <div className={classes['your-purchase']}>
+                <div className={classes['img-and-name']}>
+                  <img
+                    src={item.image || item.source}
+                    alt={item.name}
+                    width={40}
+                    height={50}
+                  />{' '}
+                  <div className={classes['inner-text']}>
+                    <div>{item.name}</div>
+                    <p>{item.quantity}</p>
+                  </div>
+                  <div className={classes.price}>
+                    x {currencyFormatter.format(item.price)}
+                  </div>
                 </div>
-                <div className={classes.price}>
-                  x {currencyFormatter.format(item.price)}
-                </div>
+                <p className={classes['cart-item-actions']}>
+                  <button
+                    onClick={() => cartCtx.removeItem(item.id)}
+                  >
+                    -
+                  </button>
+                  <button onClick={() => cartCtx.addItem(item)}>
+                    +
+                  </button>
+                </p>
               </div>
-              <p className={classes['cart-item-actions']}>
-                <button
-                  onClick={() => cartCtx.removeItem(item.id)}
-                >
-                  -
-                </button>
-                <button onClick={() => cartCtx.addItem(item)}>
-                  +
-                </button>
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      )}
       <div className={classes['cart-total']}>
         <p>Subtotal:</p>
         <div>{currencyFormatter.format(cartTotal)}</div>

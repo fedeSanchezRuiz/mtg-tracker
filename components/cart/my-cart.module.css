@@ -33,6 +33,12 @@
   transform: scale(1.02);
 }
 
+.empty-cart {
+  padding: 0;
+  padding-bottom: 2%;
+  border-bottom: 1px solid #312c1d;
+}
+
 .modal-actions {
   display: flex;
   justify-content: flex-end;

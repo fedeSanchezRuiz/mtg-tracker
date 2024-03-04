@@ -12,11 +12,29 @@ export default function Modal({
 
   useEffect(() => {
     const modal = dialog.current;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' && open && onClose) {
+        onClose();
+      }
+    };
+
     if (open) {
       modal.showModal();
+      document.addEventListener('keydown', handleKeyDown);
+    } else {
+      modal.close();
+      document.removeEventListener('keydown', handleKeyDown);
     }
-    return () => modal.close();
-  }, [open]);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [open, onClose]);
+
+  if (!open) {
+    return null;
+  }
 
   const closeModalHandler = (event) => {
     if (onClose && event.target === dialog.current) {

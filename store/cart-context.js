@@ -9,6 +9,8 @@ const CartContext = createContext({
   items: [],
   addItem: (item) => {},
   removeItem: (id) => {},
+  notification: () => {},
+  clearCart: () => {},
 });
 
 function cartReducer(state, action) {
