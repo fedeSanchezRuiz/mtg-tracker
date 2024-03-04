@@ -11,10 +11,11 @@ import CartReminder from '../ui/cart-reminder';
 export default function Layout(props) {
   const notificationCtx = useContext(NotificationContext);
   const userProgressCtx = useContext(UserProgressContext);
-  const { notification } = useContext(CartContext);
+  const cartCtx = useContext(CartContext);
 
   const activeNotification = notificationCtx.notification;
   const userProgress = userProgressCtx.progress;
+  const { notification, showNotification } = cartCtx;
 
   return (
     <>
@@ -31,6 +32,7 @@ export default function Layout(props) {
       {notification && (
         <CartReminder
           message={notification}
+          // onClose={() => showNotification(null)}
           onClose={() =>
             dispatchCartAction({ type: 'HIDE_NOTIFICATION' })
           }

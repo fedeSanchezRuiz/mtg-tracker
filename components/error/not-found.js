@@ -1,9 +1,9 @@
-import classes from './not-found.module.css';
+import Card from '../layout/card';
 
 export default function NotFound() {
   return (
-    <div className={classes.error}>
+    <Card>
       <h1> 404 - Page Not Found!</h1>
-    </div>
+    </Card>
   );
 }

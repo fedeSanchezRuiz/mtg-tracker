@@ -132,6 +132,7 @@ export function CartContextProvider({ children }) {
     addItem,
     removeItem,
     clearCart,
+    showNotification,
     notification: cart.notification,
   };
 
