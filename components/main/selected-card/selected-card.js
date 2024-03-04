@@ -59,8 +59,6 @@ export default function SelectedCard({ card }) {
           <img
             src={card.image}
             alt={card.name}
-            width={430}
-            height={580}
           />
         </div>
         <div className={classes.box}>

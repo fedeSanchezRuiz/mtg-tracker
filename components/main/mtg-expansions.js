@@ -38,8 +38,6 @@ export default function MtgExpansions() {
                   <img
                     src={set.source}
                     alt={set.name}
-                    height={450}
-                    width={700}
                   />
                 </div>
               </Link>

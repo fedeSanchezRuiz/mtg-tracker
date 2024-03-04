@@ -4,6 +4,11 @@
   margin: 2.5rem auto;
 }
 
+.container img {
+  width: 430px;
+  height: 580px;
+}
+
 .container h1 {
   padding-bottom: 1rem;
 }
@@ -41,7 +46,7 @@
   justify-content: top;
   margin-top: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid grey;
+  border-bottom: 2px solid grey;
 }
 
 .text h4 {
@@ -98,7 +103,8 @@
 }
 
 .checkout h4 {
-  padding-bottom: 0.6rem;
+  padding-bottom: 1rem;
+  text-align: center;
 }
 
 .checkout h3 {
@@ -145,6 +151,15 @@
   }
 
   .box {
-    border-bottom: 1px solid grey;
+    border-bottom: 2px solid grey;
+  }
+}
+
+@media (max-width: 450px) {
+  .container img {
+    padding-top: 8%;
+    max-width: 80%;
+    height: auto;
+    max-height: 500px;
   }
 }

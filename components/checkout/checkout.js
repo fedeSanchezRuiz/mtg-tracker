@@ -47,6 +47,14 @@ export default function Checkout() {
     }
   }, [loggedInCtx.loggedIn, router]);
 
+  // if (!loggedInCtx.loggedIn && router.push('/login')) {
+  //   notificationCtx.showNotification({
+  //     title: 'Notice!',
+  //     message: 'You must log in to proceed.',
+  //     status: 'pending',
+  //   });
+  // }
+
   function openModalHandler() {
     userProgressCtx.showCart();
   }

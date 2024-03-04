@@ -161,6 +161,7 @@
 @media (max-width: 450px) {
  .logo {
   padding: 15% 0;
+  padding-right: 4%;
  }
 
  .bottom-links {
