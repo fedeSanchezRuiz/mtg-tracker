@@ -45,8 +45,9 @@
 }
 
 .container img {
-  width: 50%;
-  flex-grow: 1;
+  height: 450px;
+  width: 44%;
+
   filter: grayscale(20%);
 }
 
@@ -96,6 +97,10 @@
     height: auto;
   }
 
+  .container {
+    object-fit: cover;
+  }
+
   .text {
     text-align: left;
     font-size: 19px;
@@ -103,12 +108,21 @@
 }
 
 @media (max-width: 768px) {
+  .wrapper {
+    margin: 0;
+  }
+
   .container {
     flex-direction: column;
     height: auto;
   }
 
   .container img {
+    height: 300px;
     width: 100%;
+  }
+
+  .text {
+    order: 1;
   }
 }

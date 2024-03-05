@@ -47,10 +47,10 @@
   width: 100%;
   height: 20%;
   font-size: 1rem;
-  color: white; /* Add text color for better visibility */
-  text-align: center; /* Center text within the h4 element */
+  color: white;
+  text-align: center;
   position: absolute;
-  top: 0; /* Position it at the top of the container */
+  top: 0;
 }
 
 @media (max-width: 768px) {

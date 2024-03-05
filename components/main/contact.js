@@ -21,8 +21,6 @@ export default function ContactAbout() {
           <img
             src='https://cdn2.inkarnate.com/cdn-cgi/image/width=1800,height=1400/https://inkarnate-api-as-production.s3.amazonaws.com/TKFNqL2xdVGvVPSYWiDuMz'
             alt='Middle Earth Map'
-            width={700}
-            height={430}
           />
           <div
             className={`${classes.text} ${classes['first-text']}`}
@@ -31,11 +29,10 @@ export default function ContactAbout() {
             <p>
               In sharing our love of games in Buenos Aires and
               the rest of Argentina, we want to spark empathy,
-              creativity, and fun in our communities. After all,
-              games are how we learn, grow, and spend time with
-              the people we love. From recommending titles for
-              game night at home to hosting in-store events, we
-              want to help you build your gaming community.
+              creativity, and fun in our communities. From
+              recommending titles for game night at home to
+              hosting in-store events, we want to help you build
+              your gaming community.
             </p>
             <Link href='/contact-us'>
               <Button>CONTACT US</Button>
@@ -61,8 +58,6 @@ export default function ContactAbout() {
           <img
             src='https://cdn.shoplightspeed.com/shops/623437/files/47035907/690x450x1/image.jpg'
             alt='Putting together a puzzle'
-            width={700}
-            height={430}
           />
         </div>
       </div>
