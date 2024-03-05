@@ -41,13 +41,47 @@
   transform: scale(1);
 }
 
+.link {
+  display: none;
+  background-color: black;
+  width: 100%;
+  height: 20%;
+  font-size: 1rem;
+  color: white; /* Add text color for better visibility */
+  text-align: center; /* Center text within the h4 element */
+  position: absolute;
+  top: 0; /* Position it at the top of the container */
+}
+
 @media (max-width: 768px) {
   .image {
     height: 15rem;
   }
 
   .image li {
-    padding: 0.2rem 0;
+    display: none;
+  }
+
+  .link {
+    display: flex;
+    text-align: center;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgba(255, 0, 0, 0.7);
+    width: 100%;
+    height: 10%;
+    font-size: 1rem;
+    color: whitesmoke;
+    text-align: center;
+    position: absolute;
+    top: 90%;
+    padding-right: 2%;
+  }
+
+  .link svg {
+    width: 20px;
+    height: 20px;
+    padding-left: 1%;
   }
 }
 
@@ -58,6 +92,7 @@
   }
 
   .image li {
+    display: none;
     padding-bottom: 3%;
   }
 }

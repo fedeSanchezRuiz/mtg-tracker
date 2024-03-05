@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import PreorderButton from '../ui/preorder-button';
 import classes from './header.module.css';
+import ArrowRightIcon from '../icons/arrow-right';
 
 export default function Header() {
   const [expansionsList, setExpansionsList] = useState([]);
@@ -83,6 +84,13 @@ export default function Header() {
           ))
         )}
       </ul>
+      <Link
+        href='/expansions'
+        className={classes.link}
+      >
+        <h4>Go to Last MTG Expansions</h4>
+        <ArrowRightIcon />
+      </Link>
     </div>
   );
 }
