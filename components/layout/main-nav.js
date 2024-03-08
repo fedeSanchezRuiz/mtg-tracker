@@ -107,7 +107,7 @@ export default function MainNavigation() {
                   type='text'
                   id='search'
                   name='search'
-                  placeholder='Search Tracker'
+                  placeholder='(In Process...)'
                 />
                 <button className={classes.glass}>
                   <SearchIcon />
