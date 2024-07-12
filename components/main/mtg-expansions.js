@@ -11,7 +11,7 @@ export default function MtgExpansions() {
       try {
         const response = await fetch('/api/expansions');
         const data = await response.json();
-        setLastExpansions(data.expansions);
+        setLastExpansions(data.expansions || []);
         setLoading(false);
       } catch (error) {
         console.error('Failed to fetch data:', error);
@@ -29,7 +29,8 @@ export default function MtgExpansions() {
           <p style={{ color: 'darkred', textAlign: 'center' }}>
             Loading...
           </p>
-        ) : (
+        ) : Array.isArray(lastExpansions) &&
+          lastExpansions.length > 0 ? (
           lastExpansions.map((set) => (
             <li key={set.name}>
               <Link href={`/expansions/${set.id}`}>
@@ -43,6 +44,10 @@ export default function MtgExpansions() {
               </Link>
             </li>
           ))
+        ) : (
+          <p style={{ color: 'darkred', textAlign: 'center' }}>
+            No expansions found.
+          </p>
         )}
       </ul>
     </div>

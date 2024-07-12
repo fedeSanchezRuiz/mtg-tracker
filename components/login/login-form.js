@@ -37,17 +37,19 @@ export default function LoginForm() {
           'Content-Type': 'application/json',
         },
       });
+
+      const data = await response.json();
+
       if (!response.ok) {
         throw new Error(data.message || 'Something went wrong!');
       }
-      const data = await response.json();
 
       notificationCtx.showNotification({
         title: 'Success!',
         message: 'Welcome to MTG Tracker!',
         status: 'success',
       });
-      loggedInCtx.logIn(true);
+      loggedInCtx.logIn(enteredEmail);
       router.push('/');
     } catch (error) {
       notificationCtx.showNotification({

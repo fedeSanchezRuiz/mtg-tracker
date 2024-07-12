@@ -122,9 +122,7 @@ export default function Checkout() {
 
   const userEmail = loggedInCtx.loggedIn
     ? loggedInCtx.email
-    : '';
-
-  console.log(userEmail); //Check this information
+    : 'Guest';
 
   return (
     <Card>

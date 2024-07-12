@@ -11,7 +11,9 @@ export default function ProductsList() {
       try {
         const response = await fetch('/api/products');
         const data = await response.json();
-        setProductList(data.products);
+        setProductList(
+          Array.isArray(data.products) ? data.products : []
+        );
         setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -29,7 +31,7 @@ export default function ProductsList() {
           <p style={{ color: 'darkred', textAlign: 'center' }}>
             Loading...
           </p>
-        ) : (
+        ) : productList.length > 0 ? (
           productList.map((product) => (
             <li key={product.name}>
               <Link href={`/products/${product.id}`}>
@@ -37,12 +39,14 @@ export default function ProductsList() {
                 <img
                   src={product.source}
                   alt={product.name}
-                  // width={300}
-                  // height={300}
                 />
               </Link>
             </li>
           ))
+        ) : (
+          <p style={{ color: 'darkred', textAlign: 'center' }}>
+            No products found.
+          </p>
         )}
       </ul>
     </div>

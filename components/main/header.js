@@ -12,9 +12,11 @@ export default function Header() {
     width: '20rem',
   });
 
-  const filteredExpansions = expansionsList.filter(
-    (set) => set.id !== 'murders-at-karlov-manor'
-  );
+  const filteredExpansions = Array.isArray(expansionsList)
+    ? expansionsList.filter(
+        (set) => set.id !== 'murders-at-karlov-manor'
+      )
+    : [];
 
   useEffect(() => {
     const fetchData = async () => {

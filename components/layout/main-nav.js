@@ -10,8 +10,9 @@ import CartContext from '@/store/cart-context';
 import UserProgressContext from '@/store/user-progress-context';
 import classes from './main-nav.module.css';
 
-export default function MainNavigation() {
+export default function MainNavigation({ searchHandler }) {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [searchInput, setSearchInput] = useState('');
   const dropdownRef = useRef(null);
   const loggedInCtx = useContext(LoggedInContext);
   const cartCtx = useContext(CartContext);
@@ -57,6 +58,17 @@ export default function MainNavigation() {
       document.removeEventListener('click', handleClickOutside);
     };
   }, []);
+
+  // Handler function for search input change
+  const handleSearchInputChange = (event) => {
+    setSearchInput(event.target.value);
+  };
+
+  // Handler function for search button click
+  const handleSearch = () => {
+    searchHandler(searchInput);
+    console.log(searchInput);
+  };
 
   return (
     <>
@@ -107,9 +119,14 @@ export default function MainNavigation() {
                   type='text'
                   id='search'
                   name='search'
-                  placeholder='(In Process...)'
+                  placeholder='Search...'
+                  value={searchInput}
+                  onChange={handleSearchInputChange}
                 />
-                <button className={classes.glass}>
+                <button
+                  className={classes.glass}
+                  onClick={handleSearch}
+                >
                   <SearchIcon />
                 </button>
               </div>

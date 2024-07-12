@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Notification from '../ui/notification';
 import MainNavigation from './main-nav';
 import NotificationContext from '@/store/notification-context';
@@ -17,9 +17,16 @@ export default function Layout(props) {
   const userProgress = userProgressCtx.progress;
   const { notification, showNotification } = cartCtx;
 
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const searchHandler = (query) => {
+    setSearchQuery(query);
+    console.log(query);
+  };
+
   return (
     <>
-      <MainNavigation />
+      <MainNavigation searchHandler={searchHandler} />
       <MediaIcons />
       <main>{props.children}</main>
       {activeNotification && (

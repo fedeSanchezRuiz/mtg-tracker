@@ -11,9 +11,9 @@ export default function Products() {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
-  const totalPages = Math.ceil(
-    productList.length / itemsPerPage
-  );
+  const totalPages = Array.isArray(productList)
+    ? Math.ceil(productList.length / itemsPerPage)
+    : 0;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,10 +51,7 @@ export default function Products() {
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const visibleProducts = productList.slice(
-    startIndex,
-    endIndex
-  );
+  const visibleProducts = Array.isArray(productList) ? productList.slice(startIndex, endIndex) : [];
 
   return (
     <>
