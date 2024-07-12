@@ -119,7 +119,7 @@ export default function MainNavigation({ searchHandler }) {
                   type='text'
                   id='search'
                   name='search'
-                  placeholder='Search...'
+                  placeholder='(In Process...)'
                   value={searchInput}
                   onChange={handleSearchInputChange}
                 />

@@ -91,3 +91,20 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+@media (max-width: 768px) {
+  .pagination {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pagination svg {
+    width: 2em;
+    height: 2em;
+  }
+
+  .pagination button {
+    padding: 8px;
+    margin: 4px 0;
+  }
+}
